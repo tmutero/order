@@ -11,7 +11,7 @@ include('../conn.php');
 $id = $_POST['info'];
 $insert = "UPDATE `order` SET `status`='approved' WHERE id='$id'";
 $run_insert = mysqli_query($conn, $insert);
-
+//
 
 $query1 = "SELECT * FROM `order` WHERE id='$id'";
 
