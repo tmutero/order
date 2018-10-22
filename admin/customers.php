@@ -23,7 +23,7 @@ if (!isAdmin()) {
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Registered Customets</h4>
+                        <h4 class="title">Registered Customers</h4>
                         <p class="category">List of all users</p>
                     </div>
 
@@ -46,6 +46,7 @@ if (!isAdmin()) {
                                 $username  = $rows['username'];
                                 $email  = $rows['email'];
                                 $datecreated=$rows['datecreated'];
+                                $id=$rows['id'];
 
                                 ?>
                                 <tr>
@@ -53,6 +54,7 @@ if (!isAdmin()) {
                                     <td><?php echo $email; ?></td>
                                     <td><?php echo $datecreated; ?></td>
                                     <td><?php echo $email; ?></td>
+
 
                                 </tr>
                                 <?php

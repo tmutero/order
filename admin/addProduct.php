@@ -9,15 +9,18 @@ if (isset($_POST["btn"])) {
     $date_added=$_POST['date_added'];
     $description=$_POST['description'];
     $image = $_FILES['image']['name'];
-    // Get text
+    $code=$_POST['code'];
+        // Get text
     $image_text = mysqli_real_escape_string($db, $_POST['image_text']);
 
     // image file directory
     $target = "../upload/".basename($image);
 
 
-    $query = "INSERT INTO `product`( name, o_price, qty, date_added,expiry_date,description,image_name) VALUES ('$name','$o_price','$qty', '$date_added', '$expiry_date','$description','$image')";
+    $query = "INSERT INTO `product`( name, o_price, qty, date_added,expiry_date,qty_sold,description,image_name,code) VALUES ('$name','$o_price','$qty', '$date_added', '$expiry_date','0','$description','$image','$code')";
     $run_insert=mysqli_query($conn,$query);
+
+
 
 
 
@@ -34,7 +37,7 @@ if (isset($_POST["btn"])) {
 
         ?>
 
-        <script>setTimeout(function(){window.location.href='product.php'},2000);</script>
+        <script>setTimeout(function(){window.location.href='product.php'},500);</script>
 
         <?php
 

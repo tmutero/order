@@ -47,7 +47,7 @@ if (!isAdmin()) {
                             <tbody>
                             <?php
                             include('../conn.php');
-                            $select = "SELECT *, o_price * qty as totalCost,o_price*qty_sold as amountReceived, qty-qty_sold as quantityInHand  FROM product;";
+                            $select = "SELECT *, o_price * qty as totalCost,o_price*qty_sold as amountReceived, qty-qty_sold as quantityInHand FROM product;";
                             $run_select = mysqli_query($conn, $select);
                             while ($rows = mysqli_fetch_array($run_select)) {
                                 $name  = $rows['name'];

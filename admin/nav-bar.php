@@ -43,6 +43,11 @@
                         <input type="text" class="form-control" placeholder="Enter ..." name="name">
                     </div>
                     <div class="form-group">
+                        <label>Product Code</label>
+                        <input type="text" class="form-control" placeholder="Enter ..." name="code">
+                    </div>
+
+                    <div class="form-group">
                         <label>Selling Price</label>
                         <input type="text" class="form-control" placeholder="Enter ..." name="o_price">
                     </div>
@@ -121,6 +126,13 @@
                     <a href="product.php">
                         <i class="pe-7s-news-paper"></i>
                         <p>Product</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="product.php">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Report</p>
                     </a>
                 </li>
 
