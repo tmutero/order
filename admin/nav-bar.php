@@ -129,12 +129,7 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="product.php">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Report</p>
-                    </a>
-                </li>
+
 
             </ul>
 

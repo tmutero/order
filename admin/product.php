@@ -43,6 +43,7 @@ if (!isAdmin()) {
                             <th>Quantity Left</th>
                             <th>Total Amount ($)</th>
                             <th>Amount Received($)</th>
+                            <th>Action</th>
                             </thead>
                             <tbody>
                             <?php
@@ -67,6 +68,8 @@ if (!isAdmin()) {
                                     <td><?php echo $quantityInHand;?></td>
                                     <td><?php echo $totalCost; ?></td>
                                     <td><?php echo $amountReceived;?></td>
+                                    <td class='text-center'><a href='#' id="<?php echo  $rows["id"];?>" class='delete_product'><span class='pe-7s-plus' aria-hidden='true'>Delete</span></a></td>
+
 
 
                                 </tr>
@@ -86,4 +89,30 @@ if (!isAdmin()) {
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".delete_product").click(function () {
+
+            var element = $(this);
+            var appid = element.attr("id");
+            var info = appid;
+
+
+            if (confirm("Are you sure you want to delete this product?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "delete_product.php",
+                    data: {info: info},
+                    success: function () {
+                    }
+                });
+                $(this).parent().parent().fadeOut(300, function () {
+                    $(this).remove();
+                });
+            }
+            return false;
+        });
+    });
+</script>
 <?php include('footer.php'); ?>

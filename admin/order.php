@@ -63,7 +63,16 @@ FROM `order` o JOIN  users  u  ON o.user_id=u.id JOIN product p ON o.product_id=
                                     <td><?php echo $area; ?></td>
                                     <td><?php echo $product_name;?></td>
                                     <td><?php echo $status;?></td>
-                                    <td class='text-center'><a href='#' id="<?php echo  $rows["id"];?>" class='aprove'><span class='glyphicon glyphicon-user' aria-hidden='true'>Approve</span></a></td>
+                                    <?php
+                                    if($status=="pending"){
+
+                                        ?>
+                                        <td class='text-center'><a href='#' id="<?php echo  $rows["id"];?>" class='aprove'><span class='pe-7s-plus' aria-hidden='true'>Approve</span></a></td>
+
+                                        <?php
+
+                                    }
+                                    ?>
 
                                 </tr>
                                 <?php

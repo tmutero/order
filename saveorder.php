@@ -57,9 +57,7 @@ if (isset($_POST["btn"])) {
 
 
 
-        $update="UPDATE `product` SET `qty_sold`=`qty_sold`+'$quantity' WHERE id='$product_id' ";
 
-        $run_insert2=mysqli_query($conn,$update);
 
 
 

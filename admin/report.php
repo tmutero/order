@@ -1,14 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tmutero
- * Date: 9/19/18
- * Time: 1:50 PM
- */
+include('../functions.php');
 
-include ('../conn.php');
-
-$select = "SELECT * FROM product;";
-$run_select = mysqli_query($conn, $select);
+if (!isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../login.php');
+}
 
 ?>
+
+<html>
+
+<head>
+    <title>Home:: Order
+    </title>
+
+</head>
+
+<?php include('nav-bar.php'); ?>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+        </div>
+
+    </div>
+</div>
+<?php include('footer.php'); ?>
