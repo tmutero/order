@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -39,6 +40,10 @@
 
     <link href="assets/js/dataTables.bootstrap4.css" rel="stylesheet">
 
+
+    <script src="assets/js/jquery-1.12.3.min.js"></script>
+
+
 </head>
 
 <body>
@@ -63,7 +68,7 @@
                             <i class="fas fa-truck mr-2"></i>Track Order</a>
                     </li>
                     <li class="text-center border-right text-white">
-                        <i class="fas fa-phone mr-2"></i> 001 234 5678
+                        <i class="fas fa-user mr-2"></i>Welcome:-<?php echo $username;?>
                     </li>
                     <li class="text-center border-right text-white">
                         <a href="index.php?logout='1" class="text-white">
@@ -129,9 +134,14 @@
                             <form action="#" method="post" class="last">
                                 <input type="hidden" name="cmd" value="_cart">
                                 <input type="hidden" name="display" value="1">
-                                <button class="btn w3view-cart" type="submit" name="submit" value="">
-                                    <i class="fas fa-cart-arrow-down"></i>
-                                </button>
+
+
+                                <a href="#" data-toggle="modal" data-target="#orders" class="nav-link" href="">
+
+                                    <button class="btn w3view-cart" type="submit" name="submit" value="">
+                                        <i class="fas fa-cart-arrow-down"></i>
+                                    </button>
+                                </a>
                             </form>
                         </div>
                     </div>
@@ -145,18 +155,7 @@
 <div class="navbar-inner">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="agileits-navi_search">
-                <form action="#" method="post">
-                    <select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
-                        <option value="">All Categories</option>
-                        <option value="Televisions">Fruits $ Vegetables</option>
-                        <option value="Headphones">Drinks $ Beverages</option>
-                        <option value="Computers">Meat and Fresh Chips</option>
 
-
-                    </select>
-                </form>
-            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -164,15 +163,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center mr-xl-5">
                     <li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="index.html">Home
+                        <a class="nav-link" href="index.php">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="mostPurchased.php">Most Purchased</a>
-                    </li>
-                    <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="recentlyAdded.php">Recently Added</a>
+                        <a href="#" data-toggle="modal" data-target="#orders" class="nav-link" href="">My Orders</a>
                     </li>
 
 

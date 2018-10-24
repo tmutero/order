@@ -5,6 +5,11 @@ if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
+
+
+$username=$_SESSION['user']['username'];
+
+$userId = $_SESSION['user']['id'];
 //session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
@@ -58,6 +63,8 @@ if(!empty($_GET["action"])) {
 
 </head>
 <?php include ("header.php");?>
+
+<div id="alert_action" class="col-6" align="center"></div>
 <div id="shopping-cart">
     <div class="txt-heading">Shopping Cart</div>
 
@@ -199,4 +206,96 @@ if(!empty($_GET["action"])) {
         </div>
     </div>
 </div>
+
+    <div  class="modal fade" id="orders" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order List</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table table-hover">
+                        <thead>
+                        <th>Order Number</th>
+                        <th>Date Created</th>
+
+                        <th>Quantity</th>
+                        <th>Located</th>
+                        <th>Product Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        </thead>
+                        <tbody>
+                        <?php
+                        include('conn.php');
+                        $select = "SELECT  order_num,date_created,username, area,quantity,name,status,o.id
+FROM `order` o JOIN  users  u  ON o.user_id=u.id JOIN product p ON o.product_id=p.id WHERE o.user_id='$userId' ORDER BY date_created DESC ";
+                        $run_select = mysqli_query($conn, $select);
+                        while ($rows = mysqli_fetch_array($run_select)) {
+                            $order_num  = $rows['order_num'];
+                            $date_created  = $rows['date_created'];
+                            $username  = $rows['username'];
+                            $area  = $rows['area'];
+                            $quantity  = $rows['quantity'];
+                            $product_name=$rows['name'];
+                            $status=$rows['status'];
+
+                            ?>
+                            <tr>
+                                <td><?php echo $order_num; ?></td>
+                                <td><?php echo $date_created; ?></td>
+
+                                <td><?php echo $quantity; ?></td>
+                                <td><?php echo $area; ?></td>
+                                <td><?php echo $product_name;?></td>
+                                <td><?php echo $status;?></td>
+                                <td class='text-center'><a href='#' id="<?php echo  $rows["id"];?>" class='delete_order'><span class='pe-7s-plus' aria-hidden='true'>Delete</span></a></td>
+
+
+
+                            </tr>
+                            <?php
+                        }
+
+                        ?>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $(".delete_order").click(function () {
+
+                var element = $(this);
+                var appid = element.attr("id");
+                var info = appid;
+
+
+                if (confirm("Are you sure you want to delete this order?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "deleteCustomerOrder.php",
+                        data: {info: info},
+                        success: function () {
+
+                            $('#orders').modal('hide');
+
+                            $('#alert_action').fadeIn().html('<div class="alert alert-success">'+data+'</div>');
+                        }
+                    });
+                    $(this).parent().parent().fadeOut(300, function () {
+                        $(this).remove();
+                    });
+                }
+                return false;
+            });
+        });
+    </script>
 <?php include ("footer.php");?>
