@@ -64,7 +64,7 @@
 						  VALUES('$username', '$email', '$user_type', '$password')";
 				mysqli_query($db, $query);
 				$_SESSION['success']  = "New user successfully created!!";
-				header('location: home.php');
+				header('location: admin/home.php');
 			}else{
 				$query = "INSERT INTO users (username, email, user_type, password) 
 						  VALUES('$username', '$email', 'user', '$password')";
@@ -172,7 +172,7 @@
 		global $errors;
 
 		if (count($errors) > 0){
-			echo '<div class="error">';
+			echo '<div class="alert alert-danger">';
 				foreach ($errors as $error){
 					echo $error .'<br>';
 				}

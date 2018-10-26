@@ -22,6 +22,10 @@ $countPurchased = "SELECT * FROM `purchased_items`";
 $countPurchases = mysqli_query($db, $countPurchased);
 $totalPurchasedProducts = mysqli_num_rows($countPurchases);
 
+$select="SELECT sum(quantity) as total_order FROM `purchased_items`";
+$run_select=mysqli_query($db,$select);
+$row=mysqli_fetch_array($run_select);
+$total_order1=$row['total_order'];
 
 ?>
 
@@ -54,9 +58,9 @@ $totalPurchasedProducts = mysqli_num_rows($countPurchases);
             </div>
             <div class="col-md-3">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Total Product in Stock</strong></div>
+                    <div class="panel-heading"><strong>Total Products in Stock</strong></div>
                     <div class="panel-body" align="center">
-                        <h3><?php echo $totalProduct; ?></h3>
+                        <h3><?php echo $total_order1; ?></h3>
                     </div>
                 </div>
             </div>

@@ -119,7 +119,7 @@ if(!empty($_GET["action"])) {
     ?>
 </div>
 
-<div id="product-grid" style="padding-bottom: 100%">
+<div id="product-grid" style="padding-bottom: 50%">
     <div class="txt-heading">Products</div>
     <div style="padding-left: 8%">
         <?php

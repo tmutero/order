@@ -12,7 +12,8 @@ header('location: login.php');
 
 </head>
 <?php include ("header.php");
-
+$total_quantity=0;
+$total_price=0;
 $userId = $_SESSION['user']['id'];
 foreach ($_SESSION["cart_item"] as $item) {
     $total_quantity += $item["quantity"];

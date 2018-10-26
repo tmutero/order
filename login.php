@@ -84,7 +84,12 @@
 
             </div>
             <form role="form" method="post" action="login.php">
-                <?php echo display_error(); ?>
+                <?php
+
+                echo display_error();
+
+                ?>
+
                 <div class="form-group">
                     <label class="col-form-label">Username</label>
                     <input type="text" class="form-control" placeholder=" " name="username" required="" value="<?php echo $username; ?>">
@@ -126,7 +131,14 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="login.php">
-                    <?php echo display_error(); ?>
+
+                        <?php
+
+                        echo  display_error();
+
+                        ?>
+
+
                     <div class="form-group">
                         <label class="col-form-label">Your Name</label>
                         <input type="text" class="form-control" placeholder=" " name="username" required="" value="<?php echo $username; ?>">

@@ -23,7 +23,7 @@ $od_num=$_GET['od_num'];
     </head>
 <?php include ("header.php");?>
 
-<div class="container">
+<div class="container" style="padding-bottom: 5%">
     <div class="row">
         <div class="col-lg-12">
 
@@ -46,7 +46,7 @@ $od_num=$_GET['od_num'];
                             <th>Payment Status</th>
                             <th>Order Status</th>
                             <th>Order Date</th>
-                            <th></th>
+
 
                         </tr>
                         </thead>
@@ -72,10 +72,6 @@ $od_num=$_GET['od_num'];
                                 <td><?php echo $payment_type; ?></td>
                                 <td><?php echo $order_status;?></td>
                                 <td><?php echo $date_created; ?></td>
-                                <td><a href="view_order.php?pdf=1&order_num=<?php echo $rows["order_num"];?>" class="btn btn-info btn-xs">View PDF</a></td>
-
-
-
                             </tr>
                             <?php
                         }
@@ -83,11 +79,14 @@ $od_num=$_GET['od_num'];
                         ?>
                         </tbody>
                     </table>
+                    <a href="view_order.php?pdf=1&order_num=<?php echo $od_num;?>" class="btn btn-info btn-xs">View PDF Order</a>
+
+
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div style>
 
 
 <?php include ("footer.php");?>

@@ -37,7 +37,7 @@ if (isset($_POST["btn"])) {
 
         ?>
 
-        <script>setTimeout(function(){window.location.href='product.php'},500);</script>
+        <script>setTimeout(function(){window.location.href='product.php'},100);</script>
 
         <?php
 

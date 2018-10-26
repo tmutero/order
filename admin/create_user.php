@@ -52,9 +52,7 @@
 
 
                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="register_btn">Register</button>
-                    <div class="social-login-content">
 
-                    </div>
 
                 </form>
             </div>

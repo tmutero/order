@@ -40,40 +40,36 @@
 
                     <div class="form-group">
                         <label>Product Name</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="name">
+                        <input type="text" class="form-control" placeholder="Enter ..." name="name" required="required">
                     </div>
                     <div class="form-group">
                         <label>Product Code</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="code">
+                        <input type="text" class="form-control" placeholder="Enter ..." name="code" required="required">
                     </div>
 
                     <div class="form-group">
                         <label>Selling Price</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="o_price">
+                        <input type="number" step="0.01" class="form-control" placeholder="Enter ..." name="o_price" required="required">
                     </div>
 
                     <div class="form-group">
                         <label>Quantity</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." name="qty">
+                        <input type="number" class="form-control" placeholder="Enter ..." name="qty" required="required">
                     </div>
 
                     <div class="form-group">
                         <label>Date added</label>
-                        <input type="date" class="form-control" placeholder="Enter ..." name="date_added">
+                        <input type="date" class="form-control" placeholder="Enter ..." name="date_added" required="required">
                     </div>
 
                     <div class="form-group">
                         <label>Expiry Date</label>
-                        <input type="date" class="form-control" placeholder="Enter ..." name="expiry_date">
+                        <input type="date" class="form-control" placeholder="Enter ..." name="expiry_date" required="required">
                     </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea type="text" class="form-control" placeholder="Enter description" name="description"></textarea>
 
-                    </div>
                     <div class="form-group">
                         <label>Product Image</label>
-                        <input type="file" name="image" class="form-control" required="required"/>
+                        <input type="file" name="image" class="form-control" required="required">
                     </div>
 
 
@@ -86,6 +82,68 @@
 
 
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="addCustomer" class="modal fade" role="dialog">
+    <div class="modal-dialog  ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Customer Add</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="login-form">
+                    <form method="post" action="../functions.php">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="User Name" name="username" value="<?php echo $username; ?>">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $email; ?>">
+                        </div>
+
+                        <div class="controls form-group">
+                            <label>User Type</label>
+                            <select class="form-control"  name="user_type" id="user_type" >
+                                <option value="">Select Roles</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">Customer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="password_1" >
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="password_2" >
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" name="register_btn">Register</button>
+
+
+                    </form>
+
+                </div>
+
+
+
+
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
